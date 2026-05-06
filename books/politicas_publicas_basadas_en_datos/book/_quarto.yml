@@ -1,0 +1,18 @@
+project:
+  type: book
+
+book:
+  title: "Políticas Públicas Basadas en Datos"
+  subtitle: "Diagnóstico, diseño, evaluación y comunicación de decisiones públicas con Python"
+  chapters:
+    - index.md
+    - ../chapters/01_decisiones_publicas_basadas_en_datos.md
+    - ../chapters/02_diagnostico_problemas_publicos.md
+  bibliography: references.bib
+
+format:
+  html:
+    toc: true
+  typst:
+    toc: true
+    papersize: a4

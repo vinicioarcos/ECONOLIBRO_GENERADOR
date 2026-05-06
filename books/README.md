@@ -12,6 +12,7 @@ repositorio:
 ## Libros activos
 
 - `econometria_financiera_python`: Econometria Financiera con Python.
+- `politicas_publicas_basadas_en_datos`: Políticas Públicas Basadas en Datos.
 
 Cada libro debe mantener sus propios capitulos, notebooks, ejercicios, datos y
 outputs para evitar mezclar entregables.
