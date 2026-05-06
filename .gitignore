@@ -1,0 +1,80 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.env
+.venv
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Quarto / Jupyter Book builds
+_book/
+_site/
+.quarto/
+_quarto_generated/
+publishing/quarto/_generated/
+_build/
+
+# Data
+/data/raw/*
+/data/processed/*
+/data/external/*
+!/data/raw/.gitkeep
+!/data/processed/.gitkeep
+!/data/external/.gitkeep
+/books/*/data/raw/*
+/books/*/data/processed/*
+!/books/*/data/raw/.gitkeep
+!/books/*/data/processed/.gitkeep
+
+# Outputs
+/outputs/tables/*
+/outputs/figures/*
+/outputs/reports/*
+/outputs/logs/*
+/outputs/final/*
+!/outputs/tables/.gitkeep
+!/outputs/figures/.gitkeep
+!/outputs/reports/.gitkeep
+!/outputs/logs/.gitkeep
+!/outputs/final/.gitkeep
+/books/*/outputs/tables/*
+/books/*/outputs/figures/*
+/books/*/outputs/reports/*
+/books/*/outputs/final/*
+!/books/*/outputs/tables/.gitkeep
+!/books/*/outputs/figures/.gitkeep
+!/books/*/outputs/reports/.gitkeep
+!/books/*/outputs/final/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+
+# Local bundled/plugin workspace not part of this repository
+agent-browser/
+
+# Secrets
+*.key
+*.pem
+secrets.*
+.env.local
+
+# Large local files
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.parquet
+*.dta
+*.sav
+*.xlsx
+*.csv

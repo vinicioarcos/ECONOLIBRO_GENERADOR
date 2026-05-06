@@ -1,0 +1,16 @@
+format: jb-book
+root: index
+parts:
+  - caption: Fundamentos
+    chapters:
+      - file: ../chapters/01_introduccion_economia_computacional
+      - file: ../chapters/02_instalacion_entorno
+      - file: ../chapters/03_python_para_economistas
+  - caption: Datos economicos
+    chapters:
+      - file: ../chapters/05_fuentes_datos_economicos
+      - file: ../chapters/06_limpieza_pandas
+  - caption: Proyecto final
+    chapters:
+      - file: ../chapters/29_proyecto_reproducible
+      - file: ../chapters/30_proyecto_final

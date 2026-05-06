@@ -1,0 +1,6 @@
+title: Economia Computacional con Python
+author: Econolab
+execute:
+  execute_notebooks: cache
+bibtex_bibfiles:
+  - ../../book/references.bib

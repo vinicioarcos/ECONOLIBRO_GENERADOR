@@ -1,0 +1,20 @@
+[project]
+name = "econolab-computational-books"
+version = "0.1.0"
+description = "Sistema multiagente para escritura de libros computacionales de economia, econometria y finanzas con Python."
+authors = [
+    { name = "Econolab" }
+]
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+ignore = []

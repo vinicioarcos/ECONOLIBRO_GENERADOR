@@ -1,0 +1,190 @@
+# Capitulo 02. Precios, retornos y rendimiento acumulado
+
+## 1. Apertura
+
+### Pregunta motivadora
+
+Por que no basta con mirar precios para comparar activos financieros y como se
+construyen retornos que permitan analizar desempeno y riesgo?
+
+### Caso aplicado
+
+Un estudiante compara tres activos: un ETF de acciones, un ETF tecnologico y un
+ETF de bonos. Al graficar precios, cada serie tiene una escala distinta. La
+comparacion visual parece confusa. Para hacer una lectura financiera mas clara,
+debe transformar precios en retornos, rendimiento acumulado, volatilidad y
+drawdown.
+
+### Por que importa
+
+La econometria financiera empieza con una decision basica: que variable se va a
+modelar. Los precios son utiles para ver niveles, pero los retornos son la base
+del analisis de riesgo, portafolios, volatilidad y pruebas de eficiencia de
+mercado. Una mala transformacion puede llevar a conclusiones equivocadas.
+
+## 2. Resultados de aprendizaje
+
+Al finalizar este capitulo, el lector sera capaz de:
+
+1. Explicar por que los precios no son directamente comparables entre activos.
+2. Calcular retornos simples y logaritmicos.
+3. Construir indices de rendimiento acumulado.
+4. Medir volatilidad anualizada a partir de retornos diarios.
+5. Calcular drawdown como medida de perdida desde maximos previos.
+6. Interpretar graficos financieros sin convertir descripcion en prediccion.
+
+## 3. Conceptos clave
+
+- Precio.
+- Retorno simple.
+- Retorno logaritmico.
+- Rendimiento acumulado.
+- Volatilidad anualizada.
+- Drawdown.
+- Maximo acumulado.
+- Escala.
+- Frecuencia diaria.
+- Comparabilidad.
+
+## 4. Intuicion economica
+
+Un precio alto no implica mejor desempeno. Una accion puede valer 500 dolares y
+otra 50 dolares, pero lo relevante para el inversionista es el cambio relativo
+de su riqueza. Por eso las finanzas comparan retornos y no solo niveles de
+precio.
+
+El rendimiento acumulado responde una pregunta concreta: cuanto habria crecido
+una unidad monetaria invertida al inicio de la muestra. El drawdown responde una
+pregunta distinta: cuanto se ha perdido desde el maximo anterior. Ambas medidas
+son descriptivas y complementarias.
+
+## 5. Formalizacion minima
+
+Retorno simple:
+
+```text
+R_t = P_t / P_{t-1} - 1
+```
+
+Retorno logaritmico:
+
+```text
+r_t = log(P_t) - log(P_{t-1})
+```
+
+Rendimiento acumulado con retornos simples:
+
+```text
+W_t = producto(1 + R_t)
+```
+
+Drawdown:
+
+```text
+DD_t = W_t / max(W_0, ..., W_t) - 1
+```
+
+La volatilidad anualizada aproximada para retornos diarios es:
+
+```text
+sigma_anual = desviacion_estandar_diaria * sqrt(252)
+```
+
+## 6. Datos
+
+El capitulo usa precios descargados desde Yahoo Finance mediante `yfinance`.
+Los tickers docentes son:
+
+| Ticker | Descripcion |
+|---|---|
+| SPY | ETF amplio de acciones estadounidenses |
+| QQQ | ETF concentrado en tecnologia y crecimiento |
+| TLT | ETF de bonos del Tesoro de largo plazo |
+
+El notebook guarda la descarga original en `data/raw` y los datos derivados en
+`data/processed`. La fecha de descarga se documenta en `outputs/reports`.
+
+## 7. Implementacion en Python
+
+El notebook asociado esta en:
+
+```text
+books/econometria_financiera_python/notebooks/chapter_02/precios_retornos_drawdown.ipynb
+```
+
+El flujo realiza:
+
+1. descarga de precios ajustados;
+2. guardado de precios originales descargados;
+3. calculo de retornos simples y logaritmicos;
+4. calculo de rendimiento acumulado;
+5. calculo de drawdown;
+6. exportacion de tablas y graficos.
+
+## 8. Resultados
+
+El notebook genera:
+
+```text
+data/raw/chapter_02_precios_yfinance_raw.csv
+data/processed/chapter_02_retornos_rendimiento_drawdown.csv
+outputs/tables/chapter_02_resumen_riesgo_retorno.csv
+outputs/figures/chapter_02_rendimiento_acumulado.png
+outputs/figures/chapter_02_drawdown.png
+outputs/reports/chapter_02_metadata_descarga.md
+```
+
+## 9. Interpretacion economica
+
+El rendimiento acumulado permite comparar crecimiento relativo, pero no resume
+todo el riesgo. Un activo puede terminar con alto rendimiento y haber sufrido
+caidas muy profundas en el camino. El drawdown complementa la lectura mostrando
+perdidas desde maximos previos.
+
+Una volatilidad anualizada mayor indica mas variacion de retornos, no
+necesariamente peor inversion. La evaluacion financiera depende de horizonte,
+tolerancia al riesgo, diversificacion y objetivos del inversionista.
+
+## 10. Errores frecuentes
+
+- Comparar precios en niveles como si fueran rendimientos.
+- Confundir retorno simple y logaritmico.
+- Anualizar volatilidad sin explicar la frecuencia.
+- Interpretar drawdown como perdida realizada para todos los inversionistas.
+- Usar datos de activos con calendarios distintos sin revisar faltantes.
+- Concluir que el activo con mayor rendimiento pasado es mejor para el futuro.
+
+## 11. Ejercicios
+
+Ver:
+
+```text
+books/econometria_financiera_python/exercises/chapter_02/ejercicios.md
+```
+
+## 12. Mini-proyecto
+
+Compare tres activos financieros con perfiles distintos. Construya rendimiento
+acumulado, volatilidad anualizada y drawdown. Escriba una interpretacion breve
+que distinga desempeno, riesgo y limitaciones de la muestra.
+
+## 13. Lecturas recomendadas
+
+Agregar referencias verificadas de econometria financiera, administracion de
+riesgo y series de tiempo financieras. No incluir referencias no verificadas.
+
+## 14. Resumen del capitulo
+
+Este capitulo transformo precios en variables financieras comparables:
+retornos, rendimiento acumulado, volatilidad y drawdown. La leccion central es
+que el desempeno financiero debe leerse junto con el riesgo y con advertencias
+claras sobre muestra, fuente y horizonte.
+
+## 15. Checklist de aprendizaje
+
+- [ ] Puedo explicar por que los precios no bastan para comparar activos.
+- [ ] Puedo calcular retornos simples y logaritmicos.
+- [ ] Puedo construir rendimiento acumulado.
+- [ ] Puedo calcular volatilidad anualizada.
+- [ ] Puedo calcular e interpretar drawdown.
+- [ ] Puedo exportar graficos y tablas reproducibles.

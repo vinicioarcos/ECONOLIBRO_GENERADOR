@@ -1,0 +1,17 @@
+project:
+  type: book
+
+book:
+  title: "Econometria Financiera con Python"
+  subtitle: "Modelos, riesgo, volatilidad y aplicaciones empiricas para mercados financieros"
+  chapters:
+    - index.md
+    - ../chapters/01_datos_financieros_python.md
+    - ../chapters/02_precios_retornos_rendimiento.md
+
+format:
+  html:
+    toc: true
+  typst:
+    toc: true
+    papersize: a4

@@ -1,0 +1,15 @@
+project:
+  type: book
+
+book:
+  title: "Economia Computacional con Python"
+  subtitle: "Datos, modelos y aplicaciones para estudiantes, docentes e investigadores en economia"
+  chapters:
+    - ../../book/index.md
+    - ../../chapters/01_introduccion_economia_computacional.md
+
+format:
+  html:
+    toc: true
+  pdf:
+    documentclass: scrreprt
