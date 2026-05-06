@@ -13,6 +13,7 @@ import re
 import shutil
 import subprocess
 import tempfile
+import unicodedata
 from pathlib import Path
 
 
@@ -88,18 +89,23 @@ def first_heading(markdown: str) -> str:
     return "Capitulo"
 
 
+def normalize_heading(text: str) -> str:
+    normalized = unicodedata.normalize("NFKD", text.strip().lower())
+    return "".join(char for char in normalized if not unicodedata.combining(char))
+
+
 def section(markdown: str, heading: str) -> str:
-    pattern = re.compile(
-        rf"^##\s+\d+\.\s+{re.escape(heading)}\s*$",
-        flags=re.MULTILINE | re.IGNORECASE,
+    target = normalize_heading(heading)
+    matches = list(
+        re.finditer(r"^##\s+\d+\.\s+(.+?)\s*$", markdown, flags=re.MULTILINE)
     )
-    match = pattern.search(markdown)
-    if not match:
-        return ""
-    start = match.end()
-    next_match = re.search(r"^##\s+\d+\.\s+", markdown[start:], flags=re.MULTILINE)
-    end = start + next_match.start() if next_match else len(markdown)
-    return markdown[start:end].strip()
+    for index, match in enumerate(matches):
+        if normalize_heading(match.group(1)) != target:
+            continue
+        start = match.end()
+        end = matches[index + 1].start() if index + 1 < len(matches) else len(markdown)
+        return markdown[start:end].strip()
+    return ""
 
 
 def subheading_text(markdown: str, subheading: str) -> str:
@@ -118,20 +124,34 @@ def subheading_text(markdown: str, subheading: str) -> str:
 
 def bullets_from_text(text: str, limit: int = 5) -> list[str]:
     bullets: list[str] = []
+    current: str | None = None
     for line in text.splitlines():
         stripped = line.strip()
         if stripped.startswith("- "):
-            bullets.append(stripped)
+            if current:
+                bullets.append(current)
+            current = stripped
         elif re.match(r"^\d+\.\s+", stripped):
-            bullets.append(re.sub(r"^\d+\.\s+", "- ", stripped))
+            if current:
+                bullets.append(current)
+            current = re.sub(r"^\d+\.\s+", "- ", stripped)
+        elif current and stripped and not stripped.startswith(("#", "```", "|")):
+            current = current + " " + stripped
         if len(bullets) >= limit:
-            break
+            return bullets[:limit]
+    if current:
+        bullets.append(current)
     return bullets
 
 
 def prose_bullets(text: str, limit: int = 4) -> list[str]:
     clean = re.sub(r"```.*?```", "", text, flags=re.DOTALL)
-    clean = re.sub(r"\|.*\|", "", clean)
+    clean_lines = [
+        line
+        for line in clean.splitlines()
+        if not line.strip().startswith("|") and not re.match(r"^\s*\d+\.\s+", line)
+    ]
+    clean = "\n".join(clean_lines)
     parts = re.split(r"(?<=[.!?])\s+", clean.replace("\n", " "))
     bullets: list[str] = []
     for part in parts:
@@ -195,7 +215,9 @@ def bundle_slides(
     conceptos = bullets_from_text(section(chapter, "Conceptos clave"), 8)
     intuicion = prose_bullets(section(chapter, "Intuicion economica"), 4)
     datos = prose_bullets(section(chapter, "Datos"), 4)
-    python = prose_bullets(section(chapter, "Implementacion en Python"), 4)
+    python = bullets_from_text(section(chapter, "Implementacion en Python"), 4) or prose_bullets(
+        section(chapter, "Implementacion en Python"), 4
+    )
     interpretacion = prose_bullets(section(chapter, "Interpretacion economica"), 4)
     errores = bullets_from_text(section(chapter, "Errores frecuentes"), 6)
     resumen = prose_bullets(section(chapter, "Resumen del capitulo"), 3)

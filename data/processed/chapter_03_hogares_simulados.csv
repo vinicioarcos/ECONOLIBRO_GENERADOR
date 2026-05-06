@@ -1,0 +1,7 @@
+hogar_id,ingreso_mensual,miembros,horas_trabajadas,zona,ingreso_per_capita,ingreso_por_hora,clasificacion
+H001,680.0,2,160,urbana,340.0,4.25,no_vulnerable_didactico
+H002,520.0,4,140,rural,130.0,3.71,vulnerable_didactico
+H003,950.0,3,180,urbana,316.67,5.28,no_vulnerable_didactico
+H004,410.0,5,120,rural,82.0,3.42,vulnerable_didactico
+H005,760.0,1,170,urbana,760.0,4.47,no_vulnerable_didactico
+H006,610.0,3,150,rural,203.33,4.07,vulnerable_didactico

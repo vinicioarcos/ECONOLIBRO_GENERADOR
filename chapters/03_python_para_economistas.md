@@ -1,87 +1,222 @@
-# Capitulo 03. Python basico para economistas
+# Capítulo 03. Python básico para economistas
 
 ## 1. Apertura
 
 ### Pregunta motivadora
 
-Que problema economico queremos entender en este capitulo?
+¿Cómo puede un economista usar Python para convertir observaciones económicas
+simples en variables, indicadores, tablas, gráficos y argumentos reproducibles?
 
 ### Caso aplicado
 
-Caso pendiente de seleccionar con datos reales de Ecuador, America Latina o una
-fuente internacional verificada.
+Un estudiante recibe una pequeña base didáctica con hogares simulados: ingreso
+mensual, número de miembros y horas trabajadas. Antes de descargar una encuesta
+real, necesita aprender a representar esos datos en Python, calcular indicadores
+básicos, detectar errores y guardar resultados en las carpetas correctas del
+proyecto.
 
-### Por que importa
+El objetivo no es estimar pobreza real ni describir un país. El objetivo es
+aprender las estructuras mínimas de Python que luego permitirán trabajar con
+fuentes verificadas.
 
-El capitulo debe explicar la relevancia economica, social, empresarial o de
-politica publica del tema.
+### Por qué importa
+
+Python no es valioso para economía porque permita escribir código largo. Es
+valioso porque permite repetir cálculos, documentar supuestos, separar datos
+originales de productos derivados y revisar cada paso entre una pregunta
+económica y una conclusión.
+
+Si un estudiante entiende variables, listas, diccionarios, funciones y rutas
+relativas, puede leer notebooks más avanzados con menos ansiedad y más criterio.
 
 ## 2. Resultados de aprendizaje
 
-Al finalizar este capitulo, el lector sera capaz de:
+Al finalizar este capítulo, el lector será capaz de:
 
-1. Explicar el problema economico central.
-2. Identificar los datos necesarios para analizarlo.
-3. Implementar un flujo basico en Python.
-4. Interpretar resultados sin sobreafirmar causalidad.
+1. Crear variables, listas y diccionarios para representar información
+   económica simple.
+2. Diferenciar tipos de datos comunes en Python: números, cadenas, booleanos y
+   colecciones.
+3. Escribir funciones pequeñas para calcular indicadores económicos.
+4. Usar condicionales y bucles para clasificar observaciones.
+5. Exportar tablas, figuras y reportes usando rutas relativas.
+6. Interpretar resultados didácticos sin presentarlos como evidencia empírica.
 
 ## 3. Conceptos clave
 
-- Concepto economico principal.
-- Variable o medida clave.
-- Metodo computacional usado.
+- Variable.
+- Tipo de dato.
+- Lista.
+- Diccionario.
+- Función.
+- Bucle.
+- Condicional.
+- Ingreso per cápita.
+- Clasificación.
+- Reproducibilidad.
 
-## 4. Intuicion economica
+## 4. Intuición económica
 
-Desarrollar aqui la explicacion conceptual sin codigo.
+Muchos problemas económicos comienzan con una operación sencilla: dividir,
+comparar, agrupar o clasificar. Por ejemplo, el ingreso total de un hogar no se
+interpreta igual si vive una persona que si viven cinco. Una transformación
+simple como el ingreso per cápita cambia la escala de análisis y permite una
+comparación más razonable.
 
-## 5. Formalizacion minima
+Python ayuda a expresar esas operaciones de forma explícita. En lugar de
+calcular manualmente cada fila, escribimos una regla general y la aplicamos a
+todas las observaciones. Esa regla queda visible para revisión docente,
+replicación y corrección.
 
-Incluir ecuacion, identidad, modelo o estructura analitica solo si ayuda al
-aprendizaje.
+La idea central del capítulo es que programar no significa decorar el análisis
+con tecnología. Programar significa transformar una pregunta económica en pasos
+lógicos que otra persona puede leer, ejecutar y discutir.
+
+## 5. Formalización mínima
+
+Para un hogar \(i\), el ingreso per cápita mensual se define como:
+
+```text
+ingreso_per_capita_i = ingreso_total_i / miembros_i
+```
+
+Una clasificación didáctica puede escribirse como:
+
+```text
+vulnerable_i = ingreso_per_capita_i < umbral
+```
+
+Esta clasificación no mide pobreza oficial. Para medir pobreza real se necesita
+una metodología institucional, una fuente de datos oficial, ponderadores y una
+línea de pobreza documentada.
 
 ## 6. Datos
 
-Registrar fuente, variables, muestra, periodo y advertencias. No inventar datos
-ni referencias.
+El notebook del capítulo usa una base simulada de hogares. La base contiene
+identificador del hogar, ingreso mensual, miembros del hogar, horas trabajadas y
+zona ficticia. Estas variables permiten practicar cálculo de indicadores sin
+afirmar resultados sobre una población real.
 
-## 7. Implementacion en Python
+| Variable | Descripción |
+|---|---|
+| `hogar_id` | Identificador ficticio del hogar |
+| `ingreso_mensual` | Ingreso mensual simulado |
+| `miembros` | Número simulado de miembros del hogar |
+| `horas_trabajadas` | Horas mensuales simuladas |
+| `zona` | Zona ficticia urbana o rural |
 
-El notebook asociado debe vivir en `notebooks/chapter_03/` y ejecutarse de
-arriba hacia abajo.
+Los datos son creados dentro del notebook. La base derivada didáctica se guarda
+en `data/processed` para mantener intacta la carpeta `data/raw`:
+
+```text
+data/processed/chapter_03_hogares_simulados.csv
+```
+
+No se modifica `data/raw`.
+
+## 7. Implementación en Python
+
+El notebook asociado está en:
+
+```text
+notebooks/chapter_03/python_basico_economistas.ipynb
+```
+
+El flujo realiza:
+
+1. define variables y tipos de datos;
+2. crea una lista de diccionarios con hogares simulados;
+3. implementa funciones para calcular ingreso per cápita e ingreso por hora;
+4. clasifica hogares con una regla condicional didáctica;
+5. exporta una tabla CSV, una figura SVG y un reporte metodológico;
+6. explica por qué los resultados no son evidencia real.
 
 ## 8. Resultados
 
-Agregar tablas, figuras y salidas principales generadas por scripts o notebooks.
+Al ejecutar el notebook se generan:
 
-## 9. Interpretacion economica
+```text
+data/processed/chapter_03_hogares_simulados.csv
+outputs/tables/chapter_03_resumen_hogares.csv
+outputs/figures/chapter_03_ingreso_per_capita.svg
+outputs/reports/chapter_03_nota_metodologica.md
+```
 
-Explicar que significan los resultados y que no se puede concluir.
+La figura compara ingresos per cápita simulados por hogar. Su única función es
+mostrar el flujo de código a salida reproducible.
+
+## 9. Interpretación económica
+
+El ingreso per cápita permite aproximar la capacidad económica individual dentro
+de un hogar, pero no resume por completo bienestar, pobreza ni vulnerabilidad.
+También importan precios locales, acceso a servicios, composición del hogar,
+activos, deudas, transferencias y condiciones territoriales.
+
+En este capítulo la interpretación correcta es técnica y pedagógica: aprendimos
+a representar datos, construir variables y guardar resultados. No aprendimos una
+verdad empírica sobre hogares reales.
 
 ## 10. Errores frecuentes
 
-- Confundir correlacion con causalidad.
-- Usar rutas absolutas.
-- Presentar una figura sin fuente e interpretacion.
+- Creer que una variable en Python es igual a una variable económica bien
+  definida.
+- Usar nombres poco claros como `x`, `y` o `dato1`.
+- Dividir por cero al calcular indicadores por persona u hora.
+- Escribir la misma operación muchas veces en vez de crear una función.
+- Mezclar datos simulados con datos oficiales.
+- Guardar derivados en `data/raw`.
+- Interpretar un ejemplo didáctico como si fuera evidencia real.
 
 ## 11. Ejercicios
 
-Ver carpeta `exercises/chapter_03/`.
+Los ejercicios están en:
+
+```text
+exercises/chapter_03/ejercicios.md
+```
+
+La guía docente está en:
+
+```text
+exercises/chapter_03/soluciones_docente.md
+```
 
 ## 12. Mini-proyecto
 
-Proponer una actividad aplicada con datos documentados.
+Cree una base simulada de diez hogares o estudiantes. Defina al menos tres
+variables, construya un indicador derivado, clasifique observaciones con una
+regla explícita y exporte una tabla. Incluya una nota metodológica que declare
+que los datos son simulados.
 
 ## 13. Lecturas recomendadas
 
-Agregar solo lecturas verificadas.
+Para esta unidad se recomienda consultar documentación oficial y material
+técnico verificable:
 
-## 14. Resumen del capitulo
+- Documentación oficial de Python sobre tipos de datos incorporados.
+- Documentación oficial de Python sobre funciones.
+- Documentación oficial de `pathlib`.
+- Guía oficial de Jupyter Notebook para ejecución ordenada de celdas.
 
-Sintetizar las ideas centrales cuando el capitulo sea desarrollado.
+No se incluyen DOI ni referencias bibliográficas no verificadas en esta versión
+del capítulo.
+
+## 14. Resumen del capítulo
+
+Este capítulo introdujo Python como lenguaje para representar información
+económica básica y convertir reglas de cálculo en resultados reproducibles.
+Trabajamos con variables, listas, diccionarios, funciones, bucles y
+condicionales.
+
+La lección principal es metodológica: antes de usar bases grandes, modelos o
+visualizaciones complejas, el economista debe poder explicar cada transformación
+que aplica a los datos.
 
 ## 15. Checklist de aprendizaje
 
-- [ ] Puedo explicar la pregunta economica.
-- [ ] Puedo ejecutar el notebook del capitulo.
-- [ ] Puedo interpretar los resultados con cautela.
+- [ ] Puedo crear variables económicas simples en Python.
+- [ ] Puedo usar listas y diccionarios para representar observaciones.
+- [ ] Puedo escribir una función pequeña y reutilizable.
+- [ ] Puedo usar condicionales para clasificar observaciones.
+- [ ] Puedo exportar resultados sin modificar `data/raw`.
+- [ ] Puedo explicar por qué un dato simulado no es evidencia empírica.
