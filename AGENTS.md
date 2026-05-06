@@ -66,7 +66,7 @@ segmentacion e interpretabilidad aplicada a problemas economicos.
 ### 9. Agente visualizador y storyteller de datos
 
 Produce graficos, tablas, diagramas y narrativas visuales claras para ensenar y
-comunicar resultados economicos.
+comunicar resultados economicos. Producer las diapositivas en formato power point y pdf que contengan imágenes en un estilo académico. Colores apropiados. 
 
 ### 10. Agente generador de ejercicios y evaluaciones
 
@@ -81,7 +81,7 @@ reproducibilidad, consistencia de datos y coherencia editorial.
 ### 12. Agente editor final y publicador
 
 Prepara el libro para publicacion en Markdown, Quarto, Jupyter Book, LaTeX, PDF,
-EPUB, HTML, Amazon KDP, LMS o GitHub Pages.
+EPUB, HTML, Amazon KDP, LMS o GitHub Pages. Revisa la gramática española y el estilo. Revisa que se use la ñ en la codificación del revisor ortográfico. Recisa que se pongan las tildes a las palabras que las llevan. 
 
 ## Reglas obligatorias
 

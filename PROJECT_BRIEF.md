@@ -1,4 +1,4 @@
-# ECONOLIBRO-CODEX
+# ECONOLIBRO-GENERADOR
 
 ## Sistema Multiagente para Escritura de Libros de Economía Computacional con Python
 
@@ -6,7 +6,7 @@
 
 ## 1. Nombre del proyecto
 
-**ECONOLIBRO-CODEX**
+**ECONOLIBRO-GENERADOR**
 
 ## 2. Subtítulo
 
@@ -15,14 +15,14 @@ Sistema multiagente para planificar, escribir, revisar y publicar libros de econ
 ## 3. Nombre sugerido del repositorio
 
 ```text
-ECONOLIBRO_CODEX
+ECONOLIBRO_GENERADOR
 ```
 
 Alternativas:
 
 ```text
-econolibro-codex
-econolab-computational-books
+econolibro-generador
+econolab-computational-books 
 computational-economics-book-agents
 econopy-book-system
 serie-econolab-computacional
@@ -32,7 +32,7 @@ serie-econolab-computacional
 
 # 4. Descripción general
 
-ECONOLIBRO-CODEX es una arquitectura multiagente diseñada para apoyar la creación de libros académicos y aplicados de economía con énfasis computacional, especialmente usando Python.
+ECONOLIBRO-GENERADOR es una arquitectura multiagente diseñada para apoyar la creación de libros académicos y aplicados de economía con énfasis computacional, especialmente usando Python.
 
 El sistema organiza la producción editorial en agentes especializados capaces de diseñar el índice del libro, estructurar capítulos, formular resultados de aprendizaje, preparar notebooks reproducibles, trabajar con datos económicos reales, generar ejercicios, revisar código, revisar teoría económica, validar modelos econométricos y preparar el libro para publicación en formatos como Markdown, Quarto, Jupyter Book, LaTeX, PDF, EPUB, HTML, LMS o Amazon KDP.
 
@@ -57,7 +57,7 @@ La escritura de libros académicos aplicados suele tener varios problemas:
 - dificultad para publicar en varios formatos;
 - falta de trazabilidad entre teoría, datos, código, resultados y ejercicios.
 
-ECONOLIBRO-CODEX busca resolver estos problemas mediante una arquitectura de trabajo clara, reproducible y multiagente.
+ECONOLIBRO-GENERADOR busca resolver estos problemas mediante una arquitectura de trabajo clara, reproducible y multiagente.
 
 ---
 
@@ -560,6 +560,8 @@ Entregables:
 - archivos de publicación;
 - versión para estudiantes;
 - versión para docentes.
+- diapositivas de cada capítulo del libro.
+
 
 ---
 
@@ -622,7 +624,7 @@ Libro publicable
 # 14. Estructura de carpetas recomendada
 
 ```text
-ECONOLIBRO_CODEX/
+ECONOLIBRO_GENERADOR/
 │
 ├── README.md
 ├── AGENTS.md
@@ -1173,7 +1175,7 @@ Crear un archivo `AGENTS.md` con el siguiente contenido inicial:
 
 ## Proyecto
 
-ECONOLIBRO-CODEX: Sistema Multiagente para Escritura de Libros de Economía Computacional con Python.
+ECONOLIBRO-GENERADOR: Sistema Multiagente para Escritura de Libros de Economía Computacional con Python.
 
 ## Descripción
 
@@ -1451,7 +1453,7 @@ pytest
 Crear `environment.yml` con este contenido:
 
 ```yaml
-name: econolibro-codex
+name: econolibro-generador
 channels:
   - conda-forge
   - defaults
@@ -1484,7 +1486,7 @@ Crear `pyproject.toml` con este contenido:
 
 ```toml
 [project]
-name = "econolibro-codex"
+name = "econolibro-generador"
 version = "0.1.0"
 description = "Sistema multiagente para escritura de libros de economía computacional con Python."
 authors = [
@@ -1602,7 +1604,7 @@ Crear `templates/checklist_libro.md` con este contenido:
 Usar esta instrucción como prompt principal:
 
 ```text
-Construye el repositorio ECONOLIBRO_CODEX siguiendo exactamente este brief.
+Construye el repositorio ECONOLIBRO_GENERADOR siguiendo exactamente este brief.
 
 Prioriza estructura, claridad, reproducibilidad, utilidad pedagógica y calidad editorial.
 
@@ -1630,15 +1632,15 @@ Después de crear la carpeta local del proyecto, ejecutar:
 
 ```powershell
 cd C:\Users\vinic\OneDrive\Escritorio\PROYECTOS
-mkdir ECONOLIBRO_CODEX
-cd ECONOLIBRO_CODEX
+mkdir ECONOLIBRO_GENERADOR
+cd ECONOLIBRO_GENERADOR
 code .
 ```
 
 Luego en Codex o Claude Code:
 
 ```text
-Lee PROJECT_BRIEF.md y construye toda la estructura inicial del proyecto ECONOLIBRO_CODEX.
+Lee PROJECT_BRIEF.md y construye toda la estructura inicial del proyecto ECONOLIBRO_GENERADOR.
 
 No crees archivos vacíos.
 
@@ -1656,7 +1658,7 @@ Respeta la regla de no modificar data/raw y de usar data/processed para datos de
 Al finalizar el primer sprint, el repositorio debe contener:
 
 ```text
-ECONOLIBRO_CODEX/
+ECONOLIBRO_GENERADOR/
 ├── README.md
 ├── AGENTS.md
 ├── PROJECT_BRIEF.md
