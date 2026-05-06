@@ -1,5 +1,13 @@
 # Econolab Computational Books
 
+![License](https://img.shields.io/github/license/vinicioarcos/econolab-computational-books)
+![Last Commit](https://img.shields.io/github/last-commit/vinicioarcos/econolab-computational-books)
+![Repo Size](https://img.shields.io/github/repo-size/vinicioarcos/econolab-computational-books)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue?logo=python&logoColor=white)
+![Quarto](https://img.shields.io/badge/quarto-publishing-blue?logo=quarto&logoColor=white)
+![Jupyter](https://img.shields.io/badge/jupyter-notebooks-orange?logo=jupyter&logoColor=white)
+![Made with Claude](https://img.shields.io/badge/made%20with-Claude-blueviolet?logo=anthropic&logoColor=white)
+
 Sistema multiagente para planificar, escribir, revisar y publicar libros de
 economia computacional con Python. Organiza la **Serie Econolab Computacional**
 como un sistema multi-libro: cada libro tiene capitulos, notebooks, ejercicios,
