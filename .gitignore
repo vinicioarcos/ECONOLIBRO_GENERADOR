@@ -10,14 +10,23 @@ env/
 
 # Jupyter
 .ipynb_checkpoints/
+**/.ipynb_checkpoints/
+*.ipynb~
+profile_default/
+ipython_config.py
 
-# Quarto / Jupyter Book builds
+# Quarto
 _book/
 _site/
 .quarto/
 _quarto_generated/
 publishing/quarto/_generated/
 _build/
+**/_freeze/
+**/site_libs/
+*.quarto_ipynb
+.jupyter_cache/
+**/.jupyter_cache/
 
 # Data
 /data/raw/*
