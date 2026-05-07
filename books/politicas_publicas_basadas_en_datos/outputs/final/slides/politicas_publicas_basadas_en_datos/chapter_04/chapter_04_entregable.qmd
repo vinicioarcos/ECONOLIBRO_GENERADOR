@@ -1,0 +1,350 @@
+---
+title: "Entregable Capitulo 04"
+subtitle: "Políticas Públicas Basadas en Datos"
+lang: "es"
+format:
+  typst:
+    toc: true
+    number-sections: false
+    papersize: a4
+    margin:
+      x: 2.2cm
+      y: 2.4cm
+execute:
+  echo: true
+---
+
+# Capítulo 04. Ética, privacidad, sesgos y gobernanza de datos
+
+## 1. Apertura
+
+### Pregunta motivadora
+
+¿Cómo puede una entidad pública usar datos para decidir mejor sin vulnerar derechos, reforzar sesgos o convertir la eficiencia administrativa en una forma de exclusión?
+
+### Caso aplicado
+
+Un programa social quiere usar registros administrativos para priorizar visitas
+domiciliarias. La base contiene edad, territorio, composición del hogar,
+historial de atención y señales de vulnerabilidad. El equipo técnico puede
+construir un puntaje de riesgo, pero debe responder preguntas previas:
+¿Existe base legal para ese uso?, ¿qué datos son estrictamente necesarios?,
+¿quién queda fuera del registro?, ¿cómo se corrigen errores?, ¿qué explicación recibe la ciudadanía?
+
+### Por qué importa
+
+Los datos públicos suelen representar situaciones sensibles: salud, pobreza,
+educación, violencia, discapacidad, migración o interacción con servicios
+estatales. El riesgo no aparece solo cuando hay nombres y cédulas. También puede
+aparecer por combinaciones de variables, reglas opacas, cobertura desigual,
+errores administrativos o decisiones automatizadas sin apelación.
+
+## 2. Resultados de aprendizaje
+
+Al finalizar este capítulo, el lector será capaz de:
+
+1. Identificar datos sensibles, riesgos de privacidad y necesidades de
+   minimización.
+2. Reconocer sesgos de medición, cobertura, selección y uso institucional.
+3. Construir una matriz básica de riesgos éticos y mitigaciones.
+4. Diferenciar anonimización, agregación, seudonimización y control de acceso.
+5. Implementar en Python una auditoría didáctica de cobertura y reglas de uso.
+
+## 3. Conceptos clave
+
+- Ética de datos.
+- Privacidad.
+- Dato sensible.
+- Minimización.
+- Consentimiento o base legal.
+- Gobernanza de datos.
+- Sesgo de cobertura.
+- Sesgo de medición.
+- Transparencia.
+- Apelación.
+- Auditoría.
+- Trazabilidad.
+
+## 4. Intuición económica
+
+La administración pública enfrenta asimetrías de información. Los datos pueden
+reducir esas asimetrías y mejorar asignación de recursos, pero también pueden
+generar costos sociales si clasifican mal a personas, invisibilizan poblaciones
+o hacen más difícil corregir errores. En políticas sociales, un falso negativo
+puede excluir a quien necesita apoyo; un falso positivo puede asignar recursos a
+quien no cumple criterios. Ambos errores tienen costos, pero no siempre son
+simétricos desde el punto de vista de derechos.
+
+La ética de datos no es un trámite posterior. Es parte de la función objetivo de
+la política pública. Una decisión puede ser eficiente en términos operativos y,
+al mismo tiempo, ser injusta, ilegal o institucionalmente frágil.
+
+## 5. Formalización mínima
+
+Una matriz mínima de riesgo puede organizarse así:
+
+```text
+riesgo = fuente del riesgo + población afectada + probabilidad + severidad
+```
+
+Una regla operativa responsable debe declarar:
+
+```text
+uso permitido -> datos necesarios -> responsable -> control -> mecanismo de corrección
+```
+
+Para un indicador o modelo usado en una decisión administrativa, el analista
+debe documentar:
+
+```text
+cobertura, exclusiones, variables sensibles, errores conocidos, revisión humana y apelación
+```
+
+Ninguna métrica técnica elimina la responsabilidad institucional.
+
+## 6. Datos
+
+El cuaderno del capítulo usa datos simulados de hogares ficticios. Incluye
+variables de territorio, acceso a registro, conectividad, vulnerabilidad y
+resultado administrativo. La simulación permite mostrar:
+
+- cómo una base puede cubrir peor a ciertos grupos;
+- cómo una regla de priorización puede producir exclusiones;
+- cómo registrar riesgos y mitigaciones;
+- cómo exportar una nota metodológica sin revelar datos sensibles.
+
+No se usan datos personales reales. Para una aplicación institucional se debe
+consultar la normativa aplicable, las políticas de protección de datos, los
+protocolos de seguridad y los comités responsables.
+
+## 7. Implementación en Python
+
+El cuaderno asociado está en:
+
+```text
+books/politicas_publicas_basadas_en_datos/notebooks/chapter_04/etica_privacidad_sesgos.ipynb
+```
+
+El flujo realiza:
+
+1. crea una base simulada de hogares ficticios;
+2. mide brechas de cobertura por grupo;
+3. aplica una regla de priorización didáctica;
+4. calcula exclusiones potenciales por cobertura incompleta;
+5. exporta una matriz de riesgos y mitigaciones;
+6. genera una figura de auditoría de cobertura;
+7. registra una nota metodológica.
+
+## 8. Resultados
+
+Al ejecutarse, el cuaderno genera:
+
+```text
+outputs/tables/chapter_04_auditoria_cobertura.csv
+outputs/tables/chapter_04_matriz_riesgos.csv
+outputs/figures/chapter_04_brechas_cobertura.png
+outputs/reports/chapter_04_nota_metodologica.md
+```
+
+Los resultados son pedagógicos. No evalúan una base real ni autorizan decisiones
+administrativas.
+
+## 9. Interpretación económica
+
+La auditoría de cobertura ayuda a detectar quién aparece en los datos y quién
+puede quedar fuera. Si un registro subrepresenta hogares rurales o personas sin
+conectividad, una regla automática puede parecer eficiente mientras excluye a la
+población con más barreras de acceso. La solución no siempre es eliminar el uso
+de datos, sino rediseñar procesos: canales presenciales, validación comunitaria,
+revisión humana, mecanismos de apelación y monitoreo de errores.
+
+En términos económicos, la gobernanza de datos reduce riesgos de mala asignación
+y costos reputacionales, legales e institucionales. En términos democráticos,
+permite que la ciudadanía entienda y cuestione reglas que afectan acceso a
+servicios públicos.
+
+## 10. Errores frecuentes
+
+- Pensar que quitar nombres elimina todo riesgo de reidentificación.
+- Usar variables sensibles sin justificación ni control.
+- Ignorar a quienes no aparecen en registros administrativos.
+- Automatizar decisiones sin revisión humana ni apelación.
+- Documentar el modelo, pero no el uso institucional.
+- Medir precisión agregada sin revisar errores por grupo.
+- Publicar tablas con celdas pequeñas o información sensible.
+- Confundir autorización técnica con legitimidad pública.
+
+## 11. Ejercicios
+
+Ver:
+
+```text
+books/politicas_publicas_basadas_en_datos/exercises/chapter_04/ejercicios.md
+```
+
+## 12. Mini-proyecto
+
+Diseñe una matriz de gobernanza para una base administrativa. Incluya propósito,
+datos necesarios, datos excluidos, responsable, controles de acceso, riesgos,
+mitigaciones, criterio de publicación y mecanismo de corrección. No use datos
+reales si no tiene autorización.
+
+## 13. Lecturas recomendadas
+
+- Normativa nacional aplicable sobre protección de datos personales.
+- Políticas institucionales de seguridad de la información y gestión de
+  registros administrativos.
+- Guías metodológicas de organismos oficiales sobre confidencialidad,
+  anonimización, acceso a microdatos y publicación estadística.
+- Documentos de monitoreo y evaluación que incorporen salvaguardas éticas.
+
+No se incluyen DOI ni referencias específicas no verificadas en este borrador.
+
+## 14. Resumen del capítulo
+
+La ética de datos en política pública exige privacidad, minimización,
+transparencia, revisión humana y gobernanza institucional. Los sesgos no son
+solo problemas estadísticos; también reflejan cobertura desigual, reglas
+históricas, barreras de acceso y decisiones administrativas. Usar datos con
+responsabilidad implica diseñar controles antes de producir indicadores o
+modelos.
+
+## 15. Checklist de aprendizaje
+
+- [ ] Puedo identificar datos sensibles y justificar minimización.
+- [ ] Puedo distinguir sesgos de cobertura, medición, selección y uso.
+- [ ] Puedo construir una matriz de riesgos y mitigaciones.
+- [ ] Puedo explicar por qué anonimizar no siempre basta.
+- [ ] Puedo proponer revisión humana, apelación y auditoría para una regla de
+      decisión.
+
+{{< pagebreak >}}
+
+# Anexo A. Ejercicios del estudiante
+
+# Ejercicios - Capítulo 04
+
+## Diagnóstico
+
+Estos ejercicios verifican que el estudiante identifica riesgos éticos,
+privacidad, sesgos y controles de gobernanza antes de usar datos en decisiones
+públicas.
+
+## Producto generado
+
+### Ejercicio 1. Riesgos de privacidad
+
+Clasifique cada situación como riesgo bajo, medio o alto y justifique:
+
+1. Tabla agregada de cobertura por provincia con celdas grandes.
+2. Base individual con identificador seudonimizado, salud y territorio.
+3. Publicación de casos por barrio con celdas muy pequeñas.
+4. Registro administrativo usado para un propósito distinto al original.
+
+### Ejercicio 2. Sesgos
+
+Identifique el tipo de sesgo principal:
+
+1. Personas sin internet aparecen menos en el registro.
+2. La variable de discapacidad se mide con criterios distintos entre oficinas.
+3. Solo se observan hogares que solicitaron el servicio.
+4. Una regla de priorización penaliza a quienes no completaron trámites
+   digitales.
+
+### Ejercicio 3. Matriz de gobernanza
+
+Diseñe una matriz con propósito, datos necesarios, datos excluidos, responsable,
+control de acceso, riesgo, mitigación y mecanismo de corrección para una base de
+beneficiarios.
+
+### Ejercicio 4. Python
+
+Ejecute el cuaderno del capítulo. Revise la auditoría de cobertura y redacte dos
+mitigaciones para el grupo con mayor brecha. No use la simulación como evidencia
+de una población real.
+
+## Justificación
+
+La gobernanza de datos debe estar antes del análisis. Estos ejercicios obligan a
+documentar riesgos, controles y mecanismos de corrección.
+
+## Riesgos o limitaciones
+
+Las respuestas dependen del contexto legal e institucional. Si el estudiante
+trabaja con una entidad real, debe seguir sus protocolos y no exponer datos
+sensibles.
+
+## Próximo paso
+
+Convertir la matriz de gobernanza en un checklist de revisión antes de publicar
+tablas, figuras o modelos.
+
+{{< pagebreak >}}
+
+# Anexo B. Guia docente
+
+# Soluciones docentes - Capítulo 04
+
+## Diagnóstico
+
+La solución docente evalúa si el estudiante reconoce riesgos de privacidad,
+sesgos de datos y controles institucionales.
+
+## Producto generado
+
+### Solución 1
+
+1. Riesgo bajo si las celdas son suficientemente grandes y no permiten
+   inferencias sensibles.
+2. Riesgo alto: la seudonimización no elimina sensibilidad ni posibilidad de
+   reidentificación.
+3. Riesgo alto: celdas pequeñas pueden revelar información indirectamente.
+4. Riesgo medio o alto, según base legal, consentimiento, compatibilidad del uso
+   y controles.
+
+### Solución 2
+
+1. Sesgo de cobertura.
+2. Sesgo de medición.
+3. Sesgo de selección.
+4. Sesgo de uso institucional o sesgo operativo.
+
+### Solución 3
+
+Una respuesta aceptable debe incluir:
+
+| Campo | Criterio mínimo |
+|---|---|
+| Propósito | Debe ser específico y compatible con la función pública. |
+| Datos necesarios | Deben aplicar minimización. |
+| Datos excluidos | Debe justificar por qué no se recolectan. |
+| Responsable | Debe tener rol institucional claro. |
+| Control de acceso | Debe definir quién puede ver o modificar datos. |
+| Riesgo | Debe mencionar privacidad, sesgo o uso indebido. |
+| Mitigación | Debe ser operativa, no solo declarativa. |
+| Corrección | Debe incluir apelación, revisión o rectificación. |
+
+### Solución 4
+
+La respuesta debe incluir:
+
+- grupo con mayor brecha según el cuaderno ejecutado;
+- explicación de la brecha como resultado simulado;
+- dos mitigaciones, por ejemplo canal presencial, búsqueda activa, validación
+  territorial, revisión humana o mecanismo de apelación;
+- advertencia de que no hay evidencia real.
+
+## Justificación
+
+La guía enfatiza que la ética de datos requiere controles verificables, no solo
+declaraciones generales.
+
+## Riesgos o limitaciones
+
+La calificación debe considerar el marco institucional. Una misma variable puede
+tener riesgos distintos según propósito, acceso y publicación.
+
+## Próximo paso
+
+Solicitar una revisión cruzada entre matriz de riesgos, diccionario de variables
+y protocolo de publicación.

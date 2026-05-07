@@ -1,0 +1,5 @@
+riesgo,tipo,severidad,mitigacion
+Subcobertura de hogares rurales o sin conectividad,sesgo de cobertura,alta,"canales presenciales, búsqueda activa y validación territorial"
+Uso de variables sensibles sin justificación,privacidad,alta,"minimización, base legal, control de acceso y registro de uso"
+Regla automática sin apelación,gobernanza,alta,"revisión humana, mecanismo de reclamo y trazabilidad de decisiones"
+Publicación de celdas pequeñas,confidencialidad,media,"agregación, supresión estadística y revisión antes de publicar"

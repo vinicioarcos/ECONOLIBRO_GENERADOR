@@ -1,0 +1,82 @@
+---
+title: "Capitulo 02. Instalacion, Google Colab y entorno de trabajo"
+subtitle: "Economia Computacional con Python"
+lang: "es"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    chalkboard: true
+    preview-links: auto
+    footer: "Serie Econolab Computacional"
+    transition: fade
+execute:
+  echo: true
+---
+
+## Pregunta guia
+
+Como preparamos un entorno de trabajo para que un analisis economico con Python
+pueda ejecutarse, revisarse y repetirse en otra computadora?
+
+## Resultados de aprendizaje
+
+- Diferenciar entre entorno local, entorno virtual, Conda y Google Colab.
+- Crear una estructura minima de proyecto reproducible.
+- Usar rutas relativas con `pathlib`.
+- Verificar la version de Python y librerias principales.
+- Explicar por que `requirements.txt` y `environment.yml` documentan el entorno.
+
+## Conceptos clave
+
+- Python.
+- Jupyter Notebook.
+- Google Colab.
+- Entorno virtual.
+- Conda.
+- Dependencias.
+- Kernel.
+- Ruta relativa.
+
+## Intuicion economica
+
+- La instalacion no es una pausa administrativa antes de hacer economia.
+- Es el primer control de calidad del analisis empirico.
+- Cuando un economista estima una tabla, construye una variable o genera una figura, esta creando evidencia.
+- Esa evidencia debe poder revisarse.
+
+## Datos y trazabilidad
+
+- Este capitulo no usa datos economicos reales.
+- Los datos reales empezaran en capitulos posteriores, despues de documentar la fuente y su metodologia.
+
+## Flujo en Python
+
+- El notebook asociado esta en:    El notebook realiza cuatro tareas:  1.
+- Verifica version de Python y plataforma.
+- Revisa si existen carpetas y archivos clave.
+- Guarda un reporte de entorno en `outputs/reports`.
+
+## Interpretacion
+
+- La interpretacion economica vendra despues.
+- En este capitulo evaluamos la infraestructura que la hara posible.
+
+## Errores frecuentes
+
+- Instalar paquetes en un Python distinto al kernel usado por Jupyter.
+- Usar rutas absolutas como `C:/Users/nombre/Desktop/...`.
+- Guardar outputs dentro de `data/raw`.
+- Ejecutar celdas en desorden y no reiniciar el kernel.
+- No registrar dependencias en `requirements.txt` o `environment.yml`.
+- Mezclar notebooks de prueba con notebooks finales.
+
+## Actividad de clase
+
+- Mini-proyecto pendiente.
+
+## Cierre
+
+- Este capitulo preparo el terreno tecnico del libro.
+- Aprendimos que un proyecto reproducible necesita estructura, rutas relativas, dependencias documentadas y notebooks que puedan ejecutarse desde cero.
+- La instalacion no debe verse como un obstaculo antes del analisis economico.

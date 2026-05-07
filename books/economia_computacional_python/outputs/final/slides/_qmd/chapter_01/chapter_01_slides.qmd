@@ -1,0 +1,84 @@
+---
+title: "Capitulo 01. Que es la economia computacional?"
+subtitle: "Economia Computacional con Python"
+lang: "es"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    chalkboard: true
+    preview-links: auto
+    footer: "Serie Econolab Computacional"
+    transition: fade
+execute:
+  echo: true
+---
+
+## Pregunta guia
+
+Como puede un economista pasar de una pregunta sobre la realidad a un analisis
+reproducible con datos, codigo e interpretacion economica?
+
+## Resultados de aprendizaje
+
+- Explicar que es la economia computacional y como se diferencia de usar codigo
+- Traducir una pregunta economica inicial en variables, fuentes de datos y
+- Reconocer la estructura minima de un proyecto reproducible con Python.
+- Distinguir entre descripcion, prediccion e inferencia causal.
+- Documentar una fuente de datos economicos sin modificar archivos originales.
+
+## Conceptos clave
+
+- Pregunta economica.
+- Unidad de observacion.
+- Variable.
+- Fuente de datos.
+- Dato crudo.
+- Dato procesado.
+- Notebook reproducible.
+- Interpretacion economica.
+
+## Intuicion economica
+
+- La economia computacional no es una rama donde el codigo reemplaza a la teoria.
+- Es una forma de organizar el trabajo empirico para que las preguntas economicas puedan analizarse con datos, metodos transparentes y resultados verificables.
+- Por ejemplo, la pregunta "que pasa con los ingresos?" es demasiado amplia.
+- Una version mas trabajable seria: "como difieren los ingresos laborales promedio entre trabajadores con distinto nivel educativo en una encuesta de hogares?".
+
+## Datos y trazabilidad
+
+- En este capitulo no se descarga una base real.
+- El objetivo es aprender a documentar una fuente antes de usarla.
+
+## Flujo en Python
+
+- El notebook asociado esta en:    Ese notebook no estima resultados empiricos.
+- Su objetivo es practicar tres habitos:  1.
+- Crear rutas relativas con `pathlib`.
+- Construir una ficha de fuente de datos como tabla.
+
+## Interpretacion
+
+- En este punto no hay resultados empiricos para interpretar.
+- Lo que si podemos interpretar es la calidad de la pregunta:  - Si la pregunta no identifica variables observables, todavia no esta lista para   un notebook.
+- - Si la fuente no documenta metodologia, el analisis tendra limites fuertes.
+- - Si la comparacion es descriptiva, no debe presentarse como causal.
+
+## Errores frecuentes
+
+- Empezar por el codigo antes de formular la pregunta economica.
+- Descargar datos sin revisar metodologia, periodo o unidad de observacion.
+- Modificar archivos originales en `data/raw`.
+- Usar rutas absolutas como `C:/Users/...`.
+- Presentar correlaciones como si fueran efectos causales.
+- Incluir graficos sin fuente, titulo o interpretacion.
+
+## Actividad de clase
+
+- El mini-proyecto consiste en documentar una fuente de datos economicos real sin descargarla todavia.
+- Busca una decision metodologica defendible.
+
+## Cierre
+
+- La economia computacional es una practica de investigacion y docencia que une preguntas economicas, datos, codigo reproducible e interpretacion.
+- Su valor no esta en ejecutar herramientas sofisticadas, sino en hacer explicito el camino entre una pregunta y una conclusion.

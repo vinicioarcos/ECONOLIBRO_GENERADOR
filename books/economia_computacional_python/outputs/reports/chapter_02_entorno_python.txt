@@ -1,0 +1,7 @@
+Reporte de entorno - Capitulo 2
+Raiz del proyecto: ECONOLIBRO_CODEX
+Python: 3.14.3
+Ejecutable: C:\Users\vinic\AppData\Local\Programs\Python\Python314\python.exe
+Plataforma: Windows-11-10.0.26200-SP0
+Archivos no .gitkeep en data/raw: 2
+Regla: no modificar data/raw; escribir derivados en data/processed u outputs.

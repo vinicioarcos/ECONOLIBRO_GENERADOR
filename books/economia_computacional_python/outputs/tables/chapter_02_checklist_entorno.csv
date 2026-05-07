@@ -1,0 +1,11 @@
+ruta,existe,tipo
+PROJECT_BRIEF.md,True,archivo
+README.md,True,archivo
+requirements.txt,True,archivo
+environment.yml,True,archivo
+chapters/02_instalacion_entorno.md,True,archivo
+notebooks/chapter_02/verificacion_entorno.ipynb,True,archivo
+data/raw,True,carpeta
+data/processed,True,carpeta
+outputs/reports,True,carpeta
+outputs/tables,True,carpeta
