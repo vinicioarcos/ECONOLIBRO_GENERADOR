@@ -3,4 +3,4 @@ author: Econolab
 execute:
   execute_notebooks: cache
 bibtex_bibfiles:
-  - ../../book/references.bib
+  - ../../books/economia_computacional_python/book/references.bib

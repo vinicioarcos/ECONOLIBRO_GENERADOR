@@ -7,9 +7,7 @@ Computacional con Python.
 
 ## Descripcion
 
-Este proyecto implementa una arquitectura multiagente para planificar, escribir,
-revisar y publicar libros academicos y aplicados de economia con enfasis
-computacional.
+Este proyecto implementa una arquitectura multiagente para planificar, escribir,  revisar y publicar libros academicos y aplicados de economia con enfasis computacional.
 
 El sistema produce capitulos, notebooks, scripts, ejercicios, datasets
 documentados, figuras, tablas, rubricas y materiales complementarios para
@@ -17,16 +15,14 @@ docencia, investigacion y publicacion.
 
 ## Regla general
 
-Cada agente debe producir entregables verificables. No se aceptan respuestas
-genericas, texto de relleno ni codigo decorativo.
+Cada agente debe producir entregables verificables. No se aceptan respuestas genericas, texto de relleno ni codigo decorativo.
 
 ## Agentes
 
 ### 1. Agente arquitecto editorial
 
 Convierte una idea de libro en una propuesta editorial. Define titulo,
-subtitulo, publico objetivo, nivel, indice maestro, estructura por partes, estilo
-y formato de publicacion.
+subtitulo, publico objetivo, nivel, indice maestro, estructura por partes, estilo y formato de publicacion.
 
 ### 2. Agente disenador pedagogico
 
@@ -80,8 +76,7 @@ reproducibilidad, consistencia de datos y coherencia editorial.
 
 ### 12. Agente editor final y publicador
 
-Prepara el libro para publicacion en Markdown, Quarto, Jupyter Book, LaTeX, PDF,
-EPUB, HTML, Amazon KDP, LMS o GitHub Pages. Revisa la gramática española y el estilo. Revisa que se use la ñ en la codificación del revisor ortográfico. Recisa que se pongan las tildes a las palabras que las llevan. NO olvidar poner el signo de apertura de interrogación en las preguntas. 
+Prepara el libro para publicacion en Markdown, Quarto, Jupyter Book, LaTeX, PDF, EPUB, HTML, Amazon KDP, LMS o GitHub Pages. Revisa la gramática española y el estilo. Revisa que se use la ñ en la codificación del revisor ortográfico. Recisa que se pongan las tildes a las palabras que las llevan. No olvidar poner el signo de apertura de interrogación en las preguntas. 
 
 ## Reglas obligatorias
 

@@ -11,10 +11,26 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_BOOK_ROOT = "books/economia_computacional_python"
+BOOK_SPECIFIC_PREFIXES = (
+    "book/",
+    "chapters/",
+    "notebooks/",
+    "exercises/",
+    "data/",
+    "outputs/",
+)
+
+
+def scoped_path(path: str) -> str:
+    normalized = path.replace("\\", "/")
+    if normalized.startswith(BOOK_SPECIFIC_PREFIXES):
+        return f"{DEFAULT_BOOK_ROOT}/{normalized}"
+    return path
 
 
 def write(path: str, content: str) -> None:
-    target = ROOT / path
+    target = ROOT / scoped_path(path)
     if "data/raw" in target.as_posix():
         raise ValueError("Refusing to write inside data/raw")
     target.parent.mkdir(parents=True, exist_ok=True)
@@ -22,7 +38,7 @@ def write(path: str, content: str) -> None:
 
 
 def touch(path: str) -> None:
-    target = ROOT / path
+    target = ROOT / scoped_path(path)
     if "data/raw" in target.as_posix() and target.name != ".gitkeep":
         raise ValueError("Refusing to write inside data/raw")
     target.parent.mkdir(parents=True, exist_ok=True)

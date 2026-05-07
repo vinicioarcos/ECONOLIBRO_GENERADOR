@@ -14,9 +14,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CHAPTERS_DIR = ROOT / "chapters"
-EXERCISES_DIR = ROOT / "exercises"
-OUTPUT_DIR = ROOT / "outputs" / "final"
+DEFAULT_BOOK = "economia_computacional_python"
 
 PAGE_WIDTH = 595
 PAGE_HEIGHT = 842
@@ -115,9 +113,9 @@ def chapter_number(path: Path) -> str:
     return match.group(1)
 
 
-def build_deliverable_markdown(chapter_path: Path) -> str:
+def build_deliverable_markdown(chapter_path: Path, exercises_dir: Path) -> str:
     number = chapter_number(chapter_path)
-    exercise_dir = EXERCISES_DIR / f"chapter_{number}"
+    exercise_dir = exercises_dir / f"chapter_{number}"
     parts = [read_if_exists(chapter_path)]
 
     exercises = read_if_exists(exercise_dir / "ejercicios.md")
@@ -235,23 +233,27 @@ def write_pdf(lines: list[Line], output_path: Path) -> None:
         file.write(f"startxref\n{xref_start}\n%%EOF\n".encode())
 
 
-def chapter_paths(selected: str | None) -> list[Path]:
+def chapter_paths(chapters_dir: Path, selected: str | None) -> list[Path]:
     if selected:
         normalized = selected.zfill(2)
-        matches = sorted(CHAPTERS_DIR.glob(f"{normalized}_*.md"))
+        matches = sorted(chapters_dir.glob(f"{normalized}_*.md"))
         if not matches:
             raise FileNotFoundError(f"No se encontro capitulo {normalized}")
         return matches
-    return sorted(CHAPTERS_DIR.glob("[0-9][0-9]_*.md"))
+    return sorted(chapters_dir.glob("[0-9][0-9]_*.md"))
 
 
-def generate(selected: str | None) -> list[Path]:
+def generate(selected: str | None, book: str) -> list[Path]:
+    book_root = ROOT / "books" / book
+    chapters_dir = book_root / "chapters"
+    exercises_dir = book_root / "exercises"
+    output_dir = book_root / "outputs" / "final"
     outputs: list[Path] = []
-    for chapter_path in chapter_paths(selected):
+    for chapter_path in chapter_paths(chapters_dir, selected):
         number = chapter_number(chapter_path)
-        markdown = build_deliverable_markdown(chapter_path)
+        markdown = build_deliverable_markdown(chapter_path, exercises_dir)
         lines = markdown_to_lines(markdown.replace("\\newpage", "\n\\newpage\n"))
-        output_path = OUTPUT_DIR / f"chapter_{number}_entregable.pdf"
+        output_path = output_dir / f"chapter_{number}_entregable.pdf"
         write_pdf(lines, output_path)
         outputs.append(output_path)
     return outputs
@@ -263,9 +265,14 @@ def main() -> int:
         "--chapter",
         help="Chapter number to generate, for example 01 or 2. Omit to generate all.",
     )
+    parser.add_argument(
+        "--book",
+        default=DEFAULT_BOOK,
+        help="Slug del libro dentro de books/.",
+    )
     args = parser.parse_args()
 
-    outputs = generate(args.chapter)
+    outputs = generate(args.chapter, args.book)
     for path in outputs:
         print(path.relative_to(ROOT))
     return 0

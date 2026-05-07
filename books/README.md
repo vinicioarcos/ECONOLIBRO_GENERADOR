@@ -11,6 +11,7 @@ repositorio:
 
 ## Libros activos
 
+- `economia_computacional_python`: Economía Computacional con Python.
 - `econometria_financiera_python`: Econometria Financiera con Python.
 - `politicas_publicas_basadas_en_datos`: Políticas Públicas Basadas en Datos.
 

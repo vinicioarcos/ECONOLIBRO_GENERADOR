@@ -8,16 +8,14 @@ so LaTeX/TinyTeX is not required.
 from __future__ import annotations
 
 import argparse
+import os
 import shutil
 import subprocess
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CHAPTERS_DIR = ROOT / "chapters"
-EXERCISES_DIR = ROOT / "exercises"
-OUTPUT_DIR = ROOT / "outputs" / "final" / "quarto"
-BUILD_DIR = ROOT / "_quarto_generated" / "pdf"
+DEFAULT_BOOK = "economia_computacional_python"
 LOCAL_QUARTO = Path.home() / "AppData" / "Local" / "Programs" / "Quarto" / "bin" / "quarto.cmd"
 
 
@@ -37,15 +35,13 @@ def chapter_number(path: Path) -> str:
 
 
 def resolve_scope(book: str | None) -> tuple[Path, Path, Path, Path]:
-    if not book:
-        return CHAPTERS_DIR, EXERCISES_DIR, OUTPUT_DIR, BUILD_DIR
-
-    book_root = ROOT / "books" / book
+    book_slug = book or DEFAULT_BOOK
+    book_root = ROOT / "books" / book_slug
     return (
         book_root / "chapters",
         book_root / "exercises",
         book_root / "outputs" / "final" / "quarto",
-        ROOT / "_quarto_generated" / "pdf" / book,
+        book_root / "_quarto_generated" / "pdf",
     )
 
 
@@ -65,28 +61,35 @@ def read_if_exists(path: Path) -> str:
     return path.read_text(encoding="utf-8").strip()
 
 
-def bundle_markdown(chapter_path: Path, exercises_dir: Path, subtitle: str) -> str:
+def bundle_markdown(chapter_path: Path, exercises_dir: Path, subtitle: str, bib_name: str | None = None) -> str:
     number = chapter_number(chapter_path)
     exercise_dir = exercises_dir / f"chapter_{number}"
     chapter = read_if_exists(chapter_path)
     exercises = read_if_exists(exercise_dir / "ejercicios.md")
     teacher_guide = read_if_exists(exercise_dir / "soluciones_docente.md")
+    
+    bib_line = f'bibliography: "{bib_name}"' if bib_name else ""
 
     parts = [
         "---",
-        f'title: "Entregable Capitulo {number}"',
+        f'title: "Capitulo {number}"',
         f'subtitle: "{subtitle}"',
+        'author: "Serie Econolab Computacional"',
         'lang: "es"',
+        bib_line,
         "format:",
         "  typst:",
         "    toc: true",
-        "    number-sections: false",
+        "    number-sections: true",
         "    papersize: a4",
         "    margin:",
-        "      x: 2.2cm",
-        "      y: 2.4cm",
+        "      x: 2.5cm",
+        "      y: 2.5cm",
+        "    mainfont: \"Libertinus Serif\"",
+        "    font-size: 11pt",
         "execute:",
         "  echo: true",
+        "  warning: false",
         "---",
         "",
         chapter,
@@ -115,9 +118,16 @@ def render_chapter(
     build_dir.mkdir(parents=True, exist_ok=True)
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # Copiar referencias.bib al build_dir para que Typst pueda acceder
+    book_root = chapter_path.parent.parent
+    bib_src = book_root / "book" / "references.bib"
+    bib_name = "references.bib"
+    if bib_src.exists():
+        shutil.copy2(bib_src, build_dir / bib_name)
+
     qmd_path = build_dir / f"chapter_{number}_entregable.qmd"
     qmd_path.write_text(
-        bundle_markdown(chapter_path, exercises_dir, subtitle),
+        bundle_markdown(chapter_path, exercises_dir, subtitle, bib_name if bib_src.exists() else None),
         encoding="utf-8",
     )
 

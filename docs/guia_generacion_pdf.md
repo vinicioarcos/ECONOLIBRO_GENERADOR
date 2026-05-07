@@ -19,7 +19,7 @@ python scripts/render_chapter_quarto.py --chapter 01
 El archivo queda en:
 
 ```text
-outputs/final/quarto/
+books/economia_computacional_python/outputs/final/quarto/
 ```
 
 ## Generar todos los capitulos

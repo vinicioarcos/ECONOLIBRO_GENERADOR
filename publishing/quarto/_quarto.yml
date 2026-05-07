@@ -4,12 +4,40 @@ project:
 book:
   title: "Economia Computacional con Python"
   subtitle: "Datos, modelos y aplicaciones para estudiantes, docentes e investigadores en economia"
+  author: "Serie Econolab Computacional"
+  language: es
+  
   chapters:
-    - ../../book/index.md
-    - ../../chapters/01_introduccion_economia_computacional.md
+    - ../../books/economia_computacional_python/book/index.md
+    - part: "Fundamentos"
+      chapters:
+        - ../../books/economia_computacional_python/chapters/01_introduccion_economia_computacional.md
+        - ../../books/economia_computacional_python/chapters/02_instalacion_entorno.md
+        - ../../books/economia_computacional_python/chapters/03_python_para_economistas.md
+        - ../../books/economia_computacional_python/chapters/04_pensamiento_computacional.md
 
 format:
   html:
+    theme: cosmo
     toc: true
+    number-sections: true
+    code-copy: true
   pdf:
     documentclass: scrreprt
+    number-sections: true
+    colorlinks: true
+    papersize: a4
+  typst:
+    toc: true
+    number-sections: true
+    papersize: a4
+    margin:
+      x: 2.5cm
+      y: 2.5cm
+    font-size: 11pt
+    mainfont: "Libertinus Serif"
+
+execute:
+  freeze: auto
+  echo: true
+  warning: false

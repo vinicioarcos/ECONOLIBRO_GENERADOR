@@ -34,7 +34,7 @@ python scripts/render_chapter_slides_quarto.py --book econometria_financiera_pyt
 Las salidas quedan en:
 
 ```text
-outputs/final/slides/
+books/economia_computacional_python/outputs/final/slides/
 ```
 
 Ejemplo de archivos generados:

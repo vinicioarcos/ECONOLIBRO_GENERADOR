@@ -4,19 +4,24 @@
 
 ### Pregunta motivadora
 
-Que problema economico queremos entender?
+¿Qué problema económico queremos entender?
 
 ### Caso aplicado
 
-Ejemplo contextualizado, preferentemente Ecuador o America Latina.
+Ejemplo contextualizado, preferentemente Ecuador o América Latina.
 
-### Por que importa
+::: {.callout-note}
+### Contexto
+Este capítulo utiliza datos de [Fuente] para ilustrar [Fenómeno].
+:::
 
-Relevancia economica, social, empresarial o de politica publica.
+### Por qué importa
+
+Relevancia económica, social, empresarial o de política pública.
 
 ## 2. Resultados de aprendizaje
 
-Al finalizar este capitulo, el lector sera capaz de:
+Al finalizar este capítulo, el lector será capaz de:
 
 1. Explicar...
 2. Implementar...
@@ -31,32 +36,57 @@ Al finalizar este capitulo, el lector sera capaz de:
 
 ## 4. Intuicion economica
 
-Explicacion conceptual sin codigo.
+Explicación conceptual sin código. 
 
-## 5. Formalizacion minima
+::: {.callout-tip}
+### Intuición
+Recuerde que [Principio Económico].
+:::
 
-Modelo, ecuacion o estructura analitica necesaria.
+## 5. Formalización mínima
+
+Modelo, ecuación o estructura analítica necesaria.
+
+$$
+y = \beta_0 + \beta_1 x + \epsilon
+$$ {#eq-modelo-base}
 
 ## 6. Datos
 
-Fuente, variables, muestra, periodo y advertencias. No inventar datos ni
-fuentes.
+Fuente, variables, muestra, período y advertencias. No inventar datos ni fuentes.
 
 ## 7. Implementacion en Python
 
-Codigo explicado paso a paso, con rutas relativas y proposito economico claro.
+Código explicado paso a paso, con rutas relativas y propósito económico claro.
+
+```python
+#| label: code-ejemplo
+#| echo: true
+import pandas as pd
+import pathlib
+
+# Carga de datos
+data_path = pathlib.Path("../data/processed/dataset.csv")
+# ... resto del codigo
+```
 
 ## 8. Resultados
 
-Tablas, graficos y salidas principales.
+Tablas, gráficos y salidas principales.
+
+![Título del Gráfico](../outputs/figures/chapter_X_figura_1.png){#fig-resultado-1 fig-align="center"}
 
 ## 9. Interpretacion economica
 
-Que significan los resultados y que no puede concluirse.
+Qué significan los resultados y qué no puede concluirse.
 
 ## 10. Errores frecuentes
 
-Errores conceptuales, tecnicos y de interpretacion.
+::: {.callout-warning}
+### Errores Comunes
+- Confundir correlación con causalidad.
+- No verificar los supuestos del modelo.
+:::
 
 ## 11. Ejercicios
 
@@ -68,7 +98,7 @@ Actividad aplicada de cierre.
 
 ## 13. Lecturas recomendadas
 
-Bibliografia basica y complementaria, solo con referencias verificadas.
+Bibliografía básica y complementaria, solo con referencias verificadas. Ver @referencia.
 
 ## 14. Resumen del capitulo
 

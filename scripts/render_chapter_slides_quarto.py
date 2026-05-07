@@ -18,10 +18,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-CHAPTERS_DIR = ROOT / "chapters"
-EXERCISES_DIR = ROOT / "exercises"
-OUTPUT_DIR = ROOT / "outputs" / "final" / "slides"
-BUILD_DIR = ROOT / "_quarto_generated" / "slides"
+DEFAULT_BOOK = "economia_computacional_python"
 LOCAL_QUARTO = Path.home() / "AppData" / "Local" / "Programs" / "Quarto" / "bin" / "quarto.cmd"
 LOCAL_CHROME = Path("C:/Program Files/Google/Chrome/Application/chrome.exe")
 
@@ -54,15 +51,13 @@ def chapter_number(path: Path) -> str:
 
 
 def resolve_scope(book: str | None) -> tuple[Path, Path, Path, Path]:
-    if not book:
-        return CHAPTERS_DIR, EXERCISES_DIR, OUTPUT_DIR, BUILD_DIR
-
-    book_root = ROOT / "books" / book
+    book_slug = book or DEFAULT_BOOK
+    book_root = ROOT / "books" / book_slug
     return (
         book_root / "chapters",
         book_root / "exercises",
         book_root / "outputs" / "final" / "slides",
-        ROOT / "_quarto_generated" / "slides" / book,
+        book_root / "_quarto_generated" / "slides",
     )
 
 
@@ -202,6 +197,7 @@ def bundle_slides(
     exercises_dir: Path,
     subtitle: str,
     qmd_dir: Path,
+    theme_name: str | None = None,
 ) -> str:
     number = chapter_number(chapter_path)
     exercise_dir = exercises_dir / f"chapter_{number}"
@@ -225,21 +221,28 @@ def bundle_slides(
         section(chapter, "Mini-proyecto"), 4
     )
 
+    theme_rel = theme_name if theme_name else "simple"
+
     slides = [
         "---",
         f'title: "{title}"',
         f'subtitle: "{subtitle}"',
+        'author: "Serie Econolab Computacional"',
         'lang: "es"',
         "format:",
         "  revealjs:",
-        "    theme: simple",
+        f"    theme: [default, {theme_rel}]",
         "    slide-number: true",
         "    chalkboard: true",
         "    preview-links: auto",
         "    footer: \"Serie Econolab Computacional\"",
         "    transition: fade",
+        "    logo: \"\"", # Espacio para logo si se desea
+        "    width: 1280",
+        "    height: 720",
         "execute:",
         "  echo: true",
+        "  warning: false",
         "---",
         "",
         slide("Pregunta guia", pregunta or "- Que problema economico vamos a aprender a resolver?"),
@@ -368,9 +371,15 @@ def render_chapter(
     build_dir.mkdir(parents=True, exist_ok=True)
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # Copiar tema SCSS al build_dir
+    theme_src = ROOT / "publishing" / "quarto" / "assets" / "econolab.scss"
+    theme_name = "econolab.scss"
+    if theme_src.exists():
+        shutil.copy2(theme_src, build_dir / theme_name)
+
     qmd_path = build_dir / f"chapter_{number}_slides.qmd"
     qmd_path.write_text(
-        bundle_slides(chapter_path, exercises_dir, subtitle, build_dir),
+        bundle_slides(chapter_path, exercises_dir, subtitle, build_dir, theme_name if theme_src.exists() else None),
         encoding="utf-8",
     )
 

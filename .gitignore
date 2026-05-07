@@ -20,6 +20,7 @@ _book/
 _site/
 .quarto/
 _quarto_generated/
+books/*/_quarto_generated/
 publishing/quarto/_generated/
 _build/
 **/_freeze/
@@ -29,35 +30,23 @@ _build/
 **/.jupyter_cache/
 
 # Data
-/data/raw/*
-/data/processed/*
-/data/external/*
-!/data/raw/.gitkeep
-!/data/processed/.gitkeep
-!/data/external/.gitkeep
 /books/*/data/raw/*
 /books/*/data/processed/*
+/books/*/data/external/*
 !/books/*/data/raw/.gitkeep
 !/books/*/data/processed/.gitkeep
+!/books/*/data/external/.gitkeep
 
 # Outputs
-/outputs/tables/*
-/outputs/figures/*
-/outputs/reports/*
-/outputs/logs/*
-/outputs/final/*
-!/outputs/tables/.gitkeep
-!/outputs/figures/.gitkeep
-!/outputs/reports/.gitkeep
-!/outputs/logs/.gitkeep
-!/outputs/final/.gitkeep
 /books/*/outputs/tables/*
 /books/*/outputs/figures/*
 /books/*/outputs/reports/*
+/books/*/outputs/logs/*
 /books/*/outputs/final/*
 !/books/*/outputs/tables/.gitkeep
 !/books/*/outputs/figures/.gitkeep
 !/books/*/outputs/reports/.gitkeep
+!/books/*/outputs/logs/.gitkeep
 !/books/*/outputs/final/.gitkeep
 
 # OS

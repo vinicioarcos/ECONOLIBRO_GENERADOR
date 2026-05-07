@@ -20,7 +20,7 @@ prompts y rubricas comunes.
 
 | Libro | Estado | Descripcion |
 |---|---|---|
-| [Economia Computacional con Python](chapters/) | En progreso (30 caps.) | Datos, modelos y aplicaciones para estudiantes, docentes e investigadores |
+| [Economía Computacional con Python](books/economia_computacional_python/) | En progreso (30 caps.) | Datos, modelos y aplicaciones para estudiantes, docentes e investigadores |
 | [Econometria Financiera con Python](books/econometria_financiera_python/) | En progreso (2 caps.) | Precios, retornos, volatilidad, riesgo y portafolios con Python |
 
 ---
@@ -30,22 +30,9 @@ prompts y rubricas comunes.
 ```
 econolab-computational-books/
 ├── books/                        # Libros independientes de la serie
+│   ├── economia_computacional_python/
 │   └── econometria_financiera_python/
-├── book/                         # Archivos maestros y configuracion editorial
-├── chapters/                     # 30 capitulos en Markdown
-├── notebooks/                    # Notebooks reproducibles por capitulo
-├── exercises/                    # Ejercicios, soluciones y notebooks docentes
 ├── scripts/                      # Descarga, limpieza, validacion y generacion
-├── data/
-│   ├── raw/                      # Datos originales (no modificar)
-│   ├── processed/                # Datos derivados
-│   ├── external/                 # Fuentes externas
-│   └── dictionary/               # Diccionarios de variables
-├── outputs/
-│   ├── figures/                  # Graficos generados
-│   ├── tables/                   # Tablas generadas
-│   ├── reports/                  # Reportes intermedios
-│   └── final/                    # PDFs, slides y versiones finales
 ├── prompts/                      # Prompts de los 12 agentes editoriales
 ├── workflows/                    # Flujos editoriales y computacionales
 ├── templates/                    # Plantillas reutilizables
@@ -94,14 +81,14 @@ python scripts/validate_reproducibility.py
 
 ```bash
 python scripts/render_chapter_quarto.py --chapter 01
-# Salida: outputs/final/quarto/
+# Salida: books/economia_computacional_python/outputs/final/quarto/
 ```
 
 ### Diapositivas de un capitulo (HTML, PDF, PowerPoint)
 
 ```bash
 python scripts/render_chapter_slides_quarto.py --chapter 01
-# Salida: outputs/final/slides/
+# Salida: books/economia_computacional_python/outputs/final/slides/
 ```
 
 ### PDF de todos los capitulos
@@ -138,8 +125,8 @@ Los 9 workflows detallados estan en [`workflows/`](workflows/).
 
 1. No inventar fuentes, autores, DOI ni resultados empiricos.
 2. No afirmar causalidad sin una estrategia de identificacion.
-3. No modificar `data/raw/` — solo leer.
-4. Guardar datos derivados solo en `data/processed/`.
+3. No modificar `books/<libro>/data/raw/` — solo leer.
+4. Guardar datos derivados solo en `books/<libro>/data/processed/`.
 5. Usar rutas relativas y codigo reproducible.
 6. Todo capitulo debe tener resultados de aprendizaje explícitos.
 7. Todo notebook debe ejecutarse de arriba hacia abajo sin errores.
