@@ -81,7 +81,7 @@ reproducibilidad, consistencia de datos y coherencia editorial.
 ### 12. Agente editor final y publicador
 
 Prepara el libro para publicacion en Markdown, Quarto, Jupyter Book, LaTeX, PDF,
-EPUB, HTML, Amazon KDP, LMS o GitHub Pages. Revisa la gramática española y el estilo. Revisa que se use la ñ en la codificación del revisor ortográfico. Recisa que se pongan las tildes a las palabras que las llevan. 
+EPUB, HTML, Amazon KDP, LMS o GitHub Pages. Revisa la gramática española y el estilo. Revisa que se use la ñ en la codificación del revisor ortográfico. Recisa que se pongan las tildes a las palabras que las llevan. NO olvidar poner el signo de apertura de interrogación en las preguntas. 
 
 ## Reglas obligatorias
 

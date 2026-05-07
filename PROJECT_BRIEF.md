@@ -136,14 +136,15 @@ La colección editorial del proyecto será:
 13. Pobreza, Desigualdad y Movilidad Social con Python.
 14. Políticas Públicas Basadas en Datos.
 15. Análisis del Contexto Nacional y Global con IA.
+16. Macroeconomía computacional con python
 
 ## Línea 4. Inteligencia artificial, productividad e investigación
 
-16. Inteligencia Artificial para Economistas.
-17. IA Generativa Aplicada a la Investigación Académica.
-18. IA Agéntica Aplicada a la Productividad, Investigación y Transformación Organizacional.
-19. Automatización de Procesos Académicos y Empresariales con IA.
-20. Sistemas Multiagente para Investigación, Docencia y Consultoría.
+17. Inteligencia Artificial para Economistas.
+18. IA Generativa Aplicada a la Investigación Académica.
+19. IA Agéntica Aplicada a la Productividad, Investigación y Transformación Organizacional.
+20. Automatización de Procesos Académicos y Empresariales con IA.
+21. Sistemas Multiagente para Investigación, Docencia y Consultoría.
 
 ---
 

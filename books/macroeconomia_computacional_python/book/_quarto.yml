@@ -1,0 +1,17 @@
+project:
+  type: book
+
+book:
+  title: "Macroeconomía Computacional con Python"
+  subtitle: "Modelos, simulación, datos y política macroeconómica reproducible"
+  chapters:
+    - index.md
+    - ../chapters/01_relato_modelo_computacional.md
+  bibliography: references.bib
+
+format:
+  html:
+    toc: true
+  typst:
+    toc: true
+    papersize: a4

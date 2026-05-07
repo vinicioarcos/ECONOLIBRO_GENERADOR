@@ -8,6 +8,8 @@ book:
     - index.md
     - ../chapters/01_decisiones_publicas_basadas_en_datos.md
     - ../chapters/02_diagnostico_problemas_publicos.md
+    - ../chapters/03_teoria_cambio_mecanismos_indicadores.md
+    - ../chapters/04_etica_privacidad_sesgos_gobernanza_datos.md
   bibliography: references.bib
 
 format:
